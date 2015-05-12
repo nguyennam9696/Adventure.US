@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
-  validates :email, :username, :uniqueness => true
+  # validates :email, :username, :uniqueness => true
 
-  validates :password_hash, :username, length: { minimum: 6, maximum: 20 }
+  # validates :password_hash, :username, length: { minimum: 6, maximum: 20 }
 
-  validates :profile_picture, presence: true, allow_nil: true
+  validates :profile_picture, :presence => true, :allow_nil => true
 
   def password
     @password ||= BCrypt::Password.new(password_hash)

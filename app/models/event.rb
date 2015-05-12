@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   has_many :event_categories
   has_many :categories, through: :event_categories
 
-  validates :name, :address, :lat, :long, :starts_at, :ends_at, :presence => true
+  validates :name, :address, :starts_at, :ends_at, :presence => true
 
+  validates :lat, :long, :presence => true, :allow_nil => true
 end
