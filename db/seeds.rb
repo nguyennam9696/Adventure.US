@@ -9,7 +9,9 @@ users = 30.times.map do
     :last_name => Faker::Name.last_name,
     :username => Faker::Internet.user_name,
     :email => Faker::Internet.email,
+    :number => Faker::PhoneNumber.cell_phone,
     :birthday => Date.today - 15.years - rand(20000).days,
+    :profile_picture => Faker::Avatar.image("my-own-slug"),
     :password => 'password' )
 end
 
@@ -19,9 +21,12 @@ end
 
   Event.create!( :user_id => users[rand(users.length)].id,
     :name => Faker::Company.name,
-    :address => "#{Faker::Address.city}, #{Faker::Address.state_abbr}",
+    :description => Faker::Lorem.paragraph(2),
     :starts_at => start_time,
-    :ends_at => end_time )
+    :ends_at => end_time,
+    :address => "#{Faker::Address.city}, #{Faker::Address.state_abbr}",
+    :lat => Faker::Address.latitude,
+    :long => Faker::Address.longitude )
 end
 
 all_events = Event.all
