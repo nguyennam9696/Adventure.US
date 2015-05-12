@@ -4,4 +4,7 @@ class Event < ActiveRecord::Base
   has_many :attendees, through: :user_events, source: :user
   has_many :event_categories
   has_many :categories, through: :event_categories
+
+  validates :name, :address, :lat, :long, :starts_at, :ends_at, :presence => true
+
 end
