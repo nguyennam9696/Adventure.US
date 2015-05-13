@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="description" content="Demo project with jQuery">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/css/boostrap.min.css" >
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/application.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="/js/application.js"></script>
+    <link rel="stylesheet" href="/css/simple-sidebar.css">
+    <link rel="stylesheet" href="/css/the-big-picture.css">
   </head>
   <body>
     <% if logged_in? %>
@@ -21,5 +20,9 @@
     </form>
     <% end %>
     <%= yield %>
+    <script src="/js/facebook_api.js"></script>
+    <script src="/js/application.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
   </body>
 </html>

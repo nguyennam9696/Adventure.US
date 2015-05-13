@@ -1,18 +1,7 @@
 get '/' do
   if logged_in?
-    redirect "/users/#{current_user.id}/events"
+    redirect "/users/#{current_user.id}"
   else
-    erb :index
-  end
-end
-
-post '/login' do
-  user = User.where(email: params[:email]).first
-  if user && user.authenticate(params[:password])
-    login(user)
-    redirect "/users/#{user.id}/events"
-  else
-    user.errors.add(:login, "Username / Password input is incorrect. Please try again.")
     erb :index
   end
 end
@@ -22,9 +11,22 @@ delete '/logout' do
   redirect "/"
 end
 
+post '/login' do
+  user = User.where(email: params[:email]).first
+  if user && user.authenticate(params[:password])
+    status 200
+    login(user)
+    redirect "/users/#{user.id}"
+  else
+    user.errors.add(:login, "Username / Password input is incorrect. Please try again.")
+    erb :index
+  end
+end
+
 post '/signup' do
   user = User.new(params[:new])
   if user.save
+    status 200
     login(user)
     redirect "/users/#{user.id}/events"
   else
@@ -33,13 +35,7 @@ post '/signup' do
   end
 end
 
-get '/users/:id/events' do
+get '/users/:id' do
   @user = User.where(id: params[:id]).first
-  @events = Event.all
-  erb :"users/events"
+  erb :"users/event"
 end
-
-# post '/users/:id/events' do
-
-# end
-
