@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
 
   has_many :user_events
-  has_many :created_events, class_name: "Event"
-  has_many :attended_events, through: :user_events, source: :event
-
+  has_many :create_events, class_name: "Event"
+  has_many :attend_events, through: :user_events, source: :event
+  has_many :user_categories
+  has_many :categories, through: :user_categories
   # validates :first_name, :last_name, :birthday, :password_hash, :username, :presence => true
 
   # validates_format_of :email, :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i

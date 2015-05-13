@@ -15,11 +15,26 @@ users = 30.times.map do
     :password => 'password' )
 end
 
-10.times do
+
+party = Category.create!( :adventure_type => "Parties")
+college = Category.create!( :adventure_type => "College Adventures")
+street = Category.create!( :adventure_type => "Street Adventures")
+neighborhood = Category.create!( :adventure_type => "Neighborhood Adventures")
+competition = Category.create!( :adventure_type => "Competition")
+shopping = Category.create!( :adventure_type => "Shopping")
+buddy = Category.create!( :adventure_type => "Travel/Buddy Adventurors")
+learn = Category.create!( :adventure_type => "Study Buddy")
+startup = Category.create!( :adventure_type => "Make a company together")
+volunteer = Category.create!( :adventure_type => "Volunteer Adventures")
+hike = Category.create!( :adventure_type => "Hiker Adventures")
+booty_call = Category.create!( :adventure_type => "Booty Call")
+
+Category.all.each do |category|
+  10.times do
   start_time = Time.now + (rand(61) - 30).days
   end_time = start_time + (1 + rand(6)).hours
 
-  Event.create!( :user_id => users[rand(users.length)].id,
+  event = Event.create!( :user_id => users[rand(users.length)].id,
     :name => Faker::Company.name,
     :description => Faker::Lorem.paragraph(2),
     :starts_at => start_time,
@@ -27,12 +42,29 @@ end
     :address => "#{Faker::Address.city}, #{Faker::Address.state_abbr}",
     :lat => Faker::Address.latitude,
     :long => Faker::Address.longitude )
+    category.events << event
+  end
 end
 
 all_events = Event.all
 users.each do |user|
-  events = all_events.sample(rand(2..10))
-  events.each do |event|
-    UserEvent.create!(user: user, event: event)
+  random_events = all_events.sample(rand(2..10))
+  until random_events.length == 0
+    event = random_events.pop
+    user.create_events << event
+  end
+  random_events = all_events.sample(rand(2..10))
+  until random_events.length == 0
+    event = random_events.pop
+    user.attend_events << event
+  end
+end
+
+all_categories = Category.all
+users.each do |user|
+  random_categories = all_categories.sample(rand(1..12))
+  until random_categories.length == 0
+    category = random_categories.pop
+    user.categories << category
   end
 end
