@@ -15,7 +15,7 @@ require 'pry'
 require 'pg'
 require 'active_record'
 # require 'rspec/rails'
-require 'shoulda/matchers'
+# require 'shoulda/matchers'
 require 'logger'
 
 require 'sinatra'
