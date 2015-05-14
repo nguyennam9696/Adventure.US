@@ -18,6 +18,8 @@ gem 'json'
 
 gem 'shotgun'
 gem 'hirb'
+gem 'factory_girl'
+gem 'faker'
 
 group :test do
   gem 'rack-test'
@@ -27,6 +29,4 @@ group :test do
 end
 
 group :test, :development do
-  gem 'factory_girl'
-  gem 'faker'
 end
