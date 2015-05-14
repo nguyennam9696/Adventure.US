@@ -1,0 +1,13 @@
+<ul>
+  <% @events.each do |event| %>
+  <li><h3><%= event.name %></h3></li>
+  <li><%= event.description %></li>
+  <li><%= event.starts_at %></li>
+  <li><%= event.ends_at %></li>
+  <li><%= event.address %></li>
+  <li><%= event.lat %></li>
+  <li><%= event.long %></li>
+  <% end %>
+</ul>
+<div id="map-canvas">
+</div>

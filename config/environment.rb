@@ -16,7 +16,8 @@ require 'pg'
 require 'active_record'
 # require 'shoulda-matchers'
 require 'logger'
-
+require 'dotenv'
+Dotenv.load
 require 'sinatra'
 require "sinatra/reloader" if development?
 

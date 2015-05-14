@@ -2,6 +2,11 @@ html, body {
   background-color: #353839;
   text-align: center;
 }
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 a:link {
   color: #FDFDFD;
   text-decoration: none;

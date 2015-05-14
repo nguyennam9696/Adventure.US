@@ -33,6 +33,7 @@ post '/categories' do
     current_user.save
   end
   return main_events.flatten.to_json
+  # redirect '/events'
 end
 
 post '/login' do
@@ -55,7 +56,6 @@ post '/user' do
   user.username = params[:username]
   user.password = params[:password]
   if user.save
-    p user
     login(user)
     return user.to_json
   else
@@ -63,4 +63,7 @@ post '/user' do
   end
 end
 
-
+get '/events' do
+  @events = Event.all.order("created_at DESC")
+  erb :"events/index"
+end
