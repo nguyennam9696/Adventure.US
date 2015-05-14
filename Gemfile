@@ -22,7 +22,7 @@ gem 'hirb'
 group :test do
   gem 'rack-test'
   gem 'rspec', '~>3.0'
-  # gem 'shoulda-matchers'
+  gem 'shoulda-matchers'
   gem 'capybara'
 end
 
