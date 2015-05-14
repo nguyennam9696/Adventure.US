@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // playVideo();
   $('.signup').on('click', function(e){
     e.preventDefault();
     $('#sign-up-form').css('display', 'block');
@@ -22,7 +23,7 @@ $(document).ready(function() {
     }).done(function(data){
       $('#show-page').css('display','block')
       $('#sign-up-form').css('display','none')
-      $('#logout').css('display','block')
+      // $('#logout').css('display','block')
       $.ajax({
         url: 'users/'+data.id+'/categories',
         type: "GET",
@@ -30,7 +31,7 @@ $(document).ready(function() {
       }).done(function(categories){
         $('#show-page').css('display','block')
         $('#sign-up-form').css('display','none')
-        $('#logout').css('display','block')
+        // $('#logout').css('display','block')
         for (var i = 0; i < categories.length; i++){
           $('#checkbox-template').find('form').prepend("<input id='checkbox' type='checkbox' name='"+categories[i].adventure_type+"' value='"+categories[i].adventure_type+"'> "+categories[i].adventure_type)
         } //end 'for' loop
@@ -54,7 +55,7 @@ $(document).ready(function() {
           }).done(function(category_event){
             $('#events-page').css('display','block');
             $('#show-page').hide();
-            window.location.href = "/events";
+            window.location.href = "/categories";
           })
         });
 
@@ -72,25 +73,18 @@ $(document).ready(function() {
       dataType: 'json',
       data: $(this).children().serialize()
     }).done(function(data){
-      $('#logout').css('display','block')
+      // $('#logout').css('display','block')
       $('#show-page').css('display','block')
       $('#log-in-form').css('display','none')
+      window.location.href = "/categories";
     }) // finish done 'data'
   }) // end log-in-form 'submit'
 
 
 }); // end document ready
 
-// var initializeMap = function() {
-//   var myLat = $('')
-//   var mapOptions = {
-//     zoom: 8,
-//     center: new google.maps.LatLng(-34.397, 150.644)
-//   };
+// --------------- GOOGLE MAP -------------------
 
-//   var map = new google.maps.Map(document.getElementById('map-canvas'),
-//       mapOptions);
-// }
 
 // function loadScript() {
 //   var script = document.createElement('script');
@@ -101,3 +95,14 @@ $(document).ready(function() {
 // }
 
 // window.onload = loadScript;
+
+// ------------------ GOOGLE MAP --------------------
+
+// $(function() {
+//     var BV = new $.BigVideo({useFlashForFirefox:false});
+//   BV.init();
+//     BV.show([
+//         { type: "video/mp4",  src: "/video/Nocturnal_Wonderland_20th_Anniversary_Official_Announcement_Trailer.mp4", {ambient:true}},
+//         { type: "video/webm", src: "/video/Nocturnal_Wonderland_20th_Anniversary_Official_Announcement_Trailer.webm", {ambient:true}}
+//     ]);
+// });

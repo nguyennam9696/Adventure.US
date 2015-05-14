@@ -1,0 +1,11 @@
+<h1><%= @category.adventure_type %></h1>
+<div class="category-events-list">
+  <% @category.events.each do |event| %>
+    <div class="category-specific-event">
+      <h3 class="event-name"><%= event.name %></h3>
+      <p class="event-description"><%= event.description %></p>
+      <p class="event-date">Starts at: <%= event.starts_at %> | Ends at:<%= event.ends_at %></p>
+      <p class="event-address">Address: <%= event.address %></p>
+    </div>
+  <% end %>
+</div>

@@ -1,13 +1,8 @@
-<ul>
-  <% @events.each do |event| %>
-  <li><h3><%= event.name %></h3></li>
-  <li><%= event.description %></li>
-  <li><%= event.starts_at %></li>
-  <li><%= event.ends_at %></li>
-  <li><%= event.address %></li>
-  <li><%= event.lat %></li>
-  <li><%= event.long %></li>
-  <% end %>
-</ul>
-<div id="map-canvas">
-</div>
+<% @events.each do |event| %>
+  <div class="event-listing">
+    <h3 class="event-name"><%= event.name %></h3>
+    <p class="event-description"><%= event.description %></p>
+    <p class="event-date">Starts at: <%= event.starts_at %> | Ends at:<%= event.ends_at %></p>
+    <p class="event-address">Address: <%= event.address %></p>
+  </div>
+<% end %>

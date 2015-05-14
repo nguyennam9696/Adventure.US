@@ -2,7 +2,7 @@ get '/' do
   erb :index
 end
 
-delete '/logout' do
+get '/logout' do
   logout!
   redirect "/"
 end
@@ -64,6 +64,20 @@ post '/user' do
 end
 
 get '/events' do
-  @events = Event.all.order("created_at DESC")
-  erb :"events/index"
+  if current_user
+    @events = Event.all.order("created_at DESC")
+    erb :"events/index"
+  end
+end
+
+get '/categories' do
+  if current_user
+    @categories = Category.all.order("adventure_type DESC")
+    erb :"categories/index"
+  end
+end
+
+get '/categories/:id' do
+  @category = Category.where(id: params[:id]).first
+  erb :"categories/show"
 end

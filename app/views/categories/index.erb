@@ -1,0 +1,16 @@
+<h1 class="category-header">All Your Adventures To Accidentally Discover ;)</h1>
+<% current_user.categories.each do |category| %>
+<a class="category-event-link" href="/categories/<%= category.id %>">
+  <div class="category-block">
+    <%= category.adventure_type %>
+  </div>
+</a>
+<% end %>
+<div class="event-button-container">
+  <button class='show-events'>Show Me Events</button>
+  <button class='show-events'>Show Me Events</button>
+  <button class='show-events'>Show Me Events</button>
+  <button class='show-events'>Show Me Events</button>
+</div>
+<div id="map-canvas"></div>
+<script src="/js/gmaps.js"></script>
