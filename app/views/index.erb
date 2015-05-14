@@ -1,15 +1,18 @@
-<form action="/login" method="POST">
-  <input type="text" name="email" placeholder="Email" />
-  <input type="password" name="password" placeholder="Password" />
-  <input type="submit" value="Log In" />
-</form>
+<a href="/login"><button type ="button" class="index-button login">Login</button></a>
+<a href="/users/new"><button type ="button" class="index-button signup">Signup</button></a>
 
-<form action="/signup" method="POST">
-  <input type="text" name="new[first_name]" placeholder="First Name" />
-  <input type="text" name="new[last_name]" placeholder="Last Name" />
-  <label>Birthday: <input type="date" name="new[birthday]" /></label>
-  <input type="text" name="new[email]" placeholder="Email" />
-  <input type="text" name="new[username]" placeholder="Username" />
-  <input type="password" name="new[password]" placeholder="Password" />
-  <input type="submit" value="Sign Up" />
-</form>
+<div id="sign-up-form" style="display:none">
+  <%= erb :'users/_new' %>
+</div>
+
+<div id="log-in-form" style="display:none">
+  <%= erb :'users/_login' %>
+</div>
+
+<div id="show-page" style="display:none">
+  <%= erb :'users/_show' %>
+</div>
+
+<div id="events-page" style="display:none">
+  <%= erb :'users/_events' %>
+</div>

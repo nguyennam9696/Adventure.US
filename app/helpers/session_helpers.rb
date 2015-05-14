@@ -1,7 +1,7 @@
 helpers do
 
   def login(user)
-    session[:user] = user.id
+    session[:user_id] = user.id
   end
 
   def logout!
@@ -13,12 +13,7 @@ helpers do
   end
 
   def current_user
-    if session[:user]
-      @current_user ||= User.where(session[:user]).first
-      if @current_user == nil
-        @curent_user.clear
-      end
-    end
+    @current_user ||= User.where(id: session[:user_id]).first if session[:user_id]
   end
 
 end
