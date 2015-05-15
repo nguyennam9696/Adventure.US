@@ -16,18 +16,18 @@ users = 30.times.map do
 end
 
 
-party = Category.create!( :adventure_type => "Parties")
-college = Category.create!( :adventure_type => "College Adventures")
-street = Category.create!( :adventure_type => "Street Adventures")
-neighborhood = Category.create!( :adventure_type => "Neighborhood Adventures")
-competition = Category.create!( :adventure_type => "Competition")
-shopping = Category.create!( :adventure_type => "Shopping")
-buddy = Category.create!( :adventure_type => "Travel/Buddy Adventurors")
-learn = Category.create!( :adventure_type => "Study Buddy")
-startup = Category.create!( :adventure_type => "Make a company together")
-volunteer = Category.create!( :adventure_type => "Volunteer Adventures")
 hike = Category.create!( :adventure_type => "Hiker Adventures")
-booty_call = Category.create!( :adventure_type => "Booty Call")
+shopping = Category.create!( :adventure_type => "Shopping")
+competition = Category.create!( :adventure_type => "Competition")
+volunteer = Category.create!( :adventure_type => "Volunteer Adventures")
+startup = Category.create!( :adventure_type => "Make a company together")
+hookup = Category.create!( :adventure_type => "HookUp")
+neighborhood = Category.create!( :adventure_type => "Neighborhood Adventures")
+street = Category.create!( :adventure_type => "Street Adventures")
+learn = Category.create!( :adventure_type => "Study Buddy")
+buddy = Category.create!( :adventure_type => "Travel/Buddy Adventurors")
+college = Category.create!( :adventure_type => "College Adventures")
+party = Category.create!( :adventure_type => "Parties")
 
 Category.all.each do |category|
   10.times do
