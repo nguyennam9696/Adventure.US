@@ -12,6 +12,24 @@ html, body {
   margin: 0;
   padding: 0;
 }
+h1.category {
+  margin: 100px;
+  color: #FDFDFD;
+  font-family: 'Oleo Script';
+}
+#checkbox-template {
+  width: 960px;
+  height: 560px;
+  color: #FDFDFD;
+  text-align: center;
+}
+#checkbox {
+  display: block;
+  font-family: Arial;
+}
+p {
+  color: #FDFDFD;
+}
 #map-canvas {
   height: 100%;
   margin: 0;

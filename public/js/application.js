@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // playVideo();
   $('.signup').on('click', function(e){
     e.preventDefault();
     $('#sign-up-form').css('display', 'block');
@@ -83,26 +82,3 @@ $(document).ready(function() {
 
 }); // end document ready
 
-// --------------- GOOGLE MAP -------------------
-
-
-// function loadScript() {
-//   var script = document.createElement('script');
-//   script.type = 'text/javascript';
-//   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
-//       '&signed_in=true&callback=initialize';
-//   document.body.appendChild(script);
-// }
-
-// window.onload = loadScript;
-
-// ------------------ GOOGLE MAP --------------------
-
-// $(function() {
-//     var BV = new $.BigVideo({useFlashForFirefox:false});
-//   BV.init();
-//     BV.show([
-//         { type: "video/mp4",  src: "/video/Nocturnal_Wonderland_20th_Anniversary_Official_Announcement_Trailer.mp4", {ambient:true}},
-//         { type: "video/webm", src: "/video/Nocturnal_Wonderland_20th_Anniversary_Official_Announcement_Trailer.webm", {ambient:true}}
-//     ]);
-// });
