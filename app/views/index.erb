@@ -1,19 +1,25 @@
-<video autoplay loop muted class="bgvideo">
-  <source src="video/Nocturnal_Wonderland_20th_Anniversary_Official_Announcement_Trailer.mp4" type="video/mp4">
+<video autoplay loop muted poster="img/event.jpg" id="bgvideo">
+  <source src="video/Nocturnal_Wonderland_20th_Anniversary_Official_Announcement_Trailer.webm" type="video/webm">
 </video>
 
-<a href="/login"><button type ="button" class="index-button login">Login</button></a>
-<a href="/users/new"><button type ="button" class="index-button signup">Signup</button></a>
+<div>
+  <img class="logo" src="img/Adventure_US_logo.png">
+  <h1 class="adventure">Adventure.US</h1>
+</div>
 
 <div id="sign-up-form" style="display:none">
   <%= erb :'users/_new' %>
 </div>
 
-<div id="log-in-form" style="display:none">
+<div id="log-in-form" class="login-container" style="display:none">
   <%= erb :'users/_login' %>
 </div>
 
-<div id="show-page" style="display:none">
+<div id="show-page" class="login-container" style="display:none">
   <%= erb :'users/_show' %>
 </div>
 
+<div id="footer">
+  <a href="/login"><button type ="button" class="index-button login">Login</button></a>
+  <a href="/users/new"><button type ="button" class="index-button signup">Signup</button></a>
+</div>
