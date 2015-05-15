@@ -1,27 +1,39 @@
-html, body {
-  background-color: #353839;
-  text-align: center;
+@font-face {
+  font-family: 'Oleo Script', cursive;
+  src: url('font/Oleo_Script/OleoScript-Regular.ttf') format('truetype');
 }
-html, body, #map-canvas {
+@font-face {
+  font-family: 'Oleo Script', cursive;
+  src: url('font/Oleo_Script/OleoScript-Bold.ttf') format('truetype');
+}
+html, body {
+  text-align: center;
   height: 100%;
   margin: 0;
   padding: 0;
 }
-body {
-  background-image: url("");
-  background-size: cover;
-
+#map-canvas {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-.bgvideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width:100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -9999;
-  -webkit-filter: ;
+.logo {
+  opacity: 1;
+  margin-top: 50px;
+}
+video#bgvideo {
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+  background-color: #090F0F;
+}
+img {
+  opacity: 0.6;
+}
+.adventure {
+  font-family: 'Oleo Script', Helvetica;
+  color: #FDFDFD;
+  opacity: 1, !important;
 }
 a:link {
   color: #FDFDFD;
@@ -30,13 +42,7 @@ a:link {
 a:visited {
   color: #FDFDFD;
 }
-body {
-    background-size: cover;
-}
-.user_press {
-  width: 100%;
-}
-button {
+.login, .signup {
     /* Center the button on the background */
     display: inline-block;
     background-color: transparent;
@@ -51,14 +57,25 @@ button {
     text-shadow: 0 0 .25em black;
 
     /* Lots of padding, rectangle, rounded corners */
-    margin: -.16em;
     padding-top: 1.50%;
     padding-bottom: 1.50%;
     width: 50%;
     border: 2.5px #FDFDFD solid;
 }
-
 button:hover {
     background-color: #F07818;
     cursor:pointer;
+}
+button:hover {
+    background-color: #F07818;
+    cursor:pointer;
+}
+#container {
+  min-height: 100%;
+  position: relative;
+}
+#footer {
+  position: static;
+  margin-top: 10em;
+  width: 100%;
 }
