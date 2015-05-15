@@ -9,3 +9,16 @@
     </div>
   <% end %>
 </div>
+
+<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+<script src="//assets.ziggeo.com/js/ziggeo-jquery-json2-betajs-player.min.js"></script>
+<script>ZiggeoApi.token = "<%= ENV['ZIGGEO_APP_TOKEN'] %>";</script>
+<ziggeo ziggeo-id="name-of-the-embedding"
+        ziggeo-video="_nameofthevideo"
+        ziggeo-width=320
+        ziggeo-height=240
+></ziggeo>
+<script>
+  var embedding = ZiggeoApi.Embed.get("nameofthevideo");
+  embedding.play();
+</script>
