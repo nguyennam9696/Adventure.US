@@ -1,4 +1,7 @@
 var map, marker, infoWindow;
+var boundaryColor = '#ED1B24';
+var polyCoordinates =[]; // initialize an array where we store latitude and longitude pair
+var count=0;
 
 var initializeMap = function(location) {
   var myLatlng = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
@@ -14,6 +17,13 @@ var initializeMap = function(location) {
     position: myLatlng,
     map: map,
     title: "You are here"
+  });
+
+  google.maps.event.addListener(map, 'click', function(event) {
+    console.log("clicked on map");
+    polyCoordinates[count] = event.latLng;
+    createPolyline(polyCoordinates);
+    count++;
   });
 
 }
@@ -69,3 +79,27 @@ function addEventMarkerFromDB(locations) {
 
 $('.event-button-container').on('click', '.show-events', getEventLocationsFromDB);
 // $('.event-button-container').on('click', '.add-event', addEventMarkerFromDB);
+
+
+function createPolyline(polyC)
+{
+ Path = new google.maps.Polyline({
+   path: polyC,
+   strokeColor: boundaryColor,
+   strokeOpacity: 1.0,
+   strokeWeight: 2
+ });
+ Path.setMap(map);
+}
+
+function connectPoints()
+{
+ var point_add = []; // initialize an array
+ var start = polyCoordinates[0]; // storing start point
+ var end = polyCoordinates[(polyCoordinates.length-1)]; // storing end point
+ // pushing start and end point to an array
+ point_add.push(start);
+ point_add.push(end);
+ createPolyline(point_add); // function to join points
+
+}
