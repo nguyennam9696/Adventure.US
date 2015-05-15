@@ -8,7 +8,7 @@ var initializeMap = function(location) {
   };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+    mapOptions);
 
   marker = new google.maps.Marker({
     position: myLatlng,
@@ -22,20 +22,50 @@ var initializeMap = function(location) {
 
 function getEventLocationsFromDB() {
   // AJAX call to DB for Lat, Lng, and address of each location
-
+  event.preventDefault();
+  debugger;
+  $.ajax({
+    url: '/events/nearby',
+    type: 'get'
+  }).done(function(response){
+    console.log("success is: ", response);
+    var locations = response;
+    console.log(locations);
+    addEventMarkerFromDB(locations);
+  }).fail(function(response){
+    console.log("get events fail: ", response);
+  })
 }
 
-function addEventMarkersFromDB(locations) {
+function addEventMarkerFromDB(locations) {
   // for loop adding marker to map for each location
-  marker = new google.maps.Marker({
-    position: new google.maps.LatLng(42.073026, -87.675954),
-    map: map,
-    title: "You are here"
-  })
+  for (var i = 0; i < locations.length; i++) {
+    var name = locations[i].name;
+    var address = locations[i].address;
+    var lat = locations[i].lat;
+    var lng = locations[i].long;
+    var description = locations[i].description;
+    var contentString = "<h2>" + name + "</h2>" + "<p>" + address + "</p>" + "<p>" + description + "</p>"
+    console.log(name, address, lat, lng);
+
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lat, lng),
+      map: map,
+      title: "You are here"
+    });
 
     infoWindow = new google.maps.InfoWindow({
-    content: "Chicago!" // Add user information here
-  });
-}
+      content: contentString // Add user information here
+    });
 
-$('.event-button-container').on('click', '.show-events', addEventMarkersFromDB);
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map, marker);
+      setTimeout(function() {
+        infowindow.close();
+      }, 3000)
+    });
+  }
+};
+
+$('.event-button-container').on('click', '.show-events', getEventLocationsFromDB);
+// $('.event-button-container').on('click', '.add-event', addEventMarkerFromDB);

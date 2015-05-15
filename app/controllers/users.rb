@@ -70,6 +70,12 @@ get '/events' do
   end
 end
 
+get '/events/nearby' do
+  @events = Event.all # where(name: params[:name])
+  content_type :json
+  @events.to_json
+end
+
 get '/categories' do
   if current_user
     @categories = Category.all.order("adventure_type DESC")

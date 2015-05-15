@@ -8,9 +8,16 @@
 <% end %>
 <div class="event-button-container">
   <button class='show-events'>Show Me Events</button>
-  <button class='show-events'>Show Me Events</button>
-  <button class='show-events'>Show Me Events</button>
-  <button class='show-events'>Show Me Events</button>
+  <button class='create-event'>Launch Video</button>
+  <button class='add-event'>Add Events</button>
 </div>
+<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+<script src="//assets.ziggeo.com/js/ziggeo-jquery-json2-betajs-player.min.js"></script>
+<script>ZiggeoApi.token = "<%= ENV['ZIGGEO_APP_TOKEN'] %>";</script>
+<ziggeo
+        ziggeo-key="nameofthevideo"
+        ziggeo-width=320
+        ziggeo-height=240>
+</ziggeo>
 <div id="map-canvas"></div>
 <script src="/js/gmaps.js"></script>
